@@ -1,21 +1,27 @@
 package com.lms.webservice.dao;
 
 import com.lms.webservice.model.UserModel;
+import com.lms.webservice.util.ConnectionUtil;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class UserLoginDao {
 
-    public static void loginDao(UserModel user) throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.jdbc.Driver");
-        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "password");
-             PreparedStatement ps = con.prepareStatement("select userRole from userTable where userName= ? and password = ?")) {
+    public static boolean authenticateUser(UserModel user) throws Exception {
+        String query = "select user_role from users where user_name= ? and password = ?";
+        try (Connection con = ConnectionUtil.getConnection();
+             PreparedStatement ps = con.prepareStatement(query)) {
             ps.setString(1, user.getUserName());
             ps.setString(2, user.getPassword());
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                user.setUserRole(rs.getString(1));
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    user.setUserRole(rs.getString(1));
+                    return true;
+                }
             }
+            return false;
         }
     }
 }
