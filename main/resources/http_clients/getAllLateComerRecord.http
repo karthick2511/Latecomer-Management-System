@@ -1,0 +1,8 @@
+POST http://localhost:8081/lms/rest/getAllLateComerRecords
+Content-Type: application/json
+
+{
+  "date": "2020-01-06"
+}
+
+###
