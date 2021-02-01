@@ -4,6 +4,26 @@ import java.sql.Date;
 import java.sql.Time;
 
 public class UserModel {
+
+    private String userName;
+    private String password;
+    private String userRole = "unAuthorizerUser";
+    private String description;
+    private Time time;
+    private String staffName;
+    private String registerNumber;
+    private Date date;
+    private String studentName;
+    private Date startingDate;
+    private Date endDate;
+    private int year;
+    private String staffId;
+    private String department;
+    private String mailId;
+    private String address;
+    private long mobileNumber;
+    private Date dob;
+
     public String getUserName() {
         return userName;
     }
@@ -11,8 +31,6 @@ public class UserModel {
     public void setUserName(String userName) {
         this.userName = userName;
     }
-
-    private String userName;
 
     public String getPassword() {
         return password;
@@ -22,8 +40,6 @@ public class UserModel {
         this.password = password;
     }
 
-    private String password;
-
     public String getUserRole() {
         return userRole;
     }
@@ -31,8 +47,6 @@ public class UserModel {
     public void setUserRole(String userRole) {
         this.userRole = userRole;
     }
-
-    private String userRole = "unAuthorizerUser";
 
     public String getDescription() {
         return description;
@@ -42,8 +56,6 @@ public class UserModel {
         this.description = description;
     }
 
-    private String description;
-
     public Time getTime() {
         return time;
     }
@@ -51,8 +63,6 @@ public class UserModel {
     public void setTime(Time time) {
         this.time = time;
     }
-
-    private Time time;
 
     public String getStaffName() {
         return staffName;
@@ -62,8 +72,6 @@ public class UserModel {
         this.staffName = staffName;
     }
 
-    private String staffName;
-
     public String getRegisterNumber() {
         return registerNumber;
     }
@@ -71,8 +79,6 @@ public class UserModel {
     public void setRegisterNumber(String registerNumber) {
         this.registerNumber = registerNumber;
     }
-
-    private String registerNumber;
 
     public Date getDate() {
         return date;
@@ -82,8 +88,6 @@ public class UserModel {
         this.date = date;
     }
 
-    private Date date;
-
     public String getStudentName() {
         return studentName;
     }
@@ -91,8 +95,6 @@ public class UserModel {
     public void setStudentName(String studentName) {
         this.studentName = studentName;
     }
-
-    private String studentName;
 
     public Date getStartingDate() {
         return startingDate;
@@ -102,8 +104,6 @@ public class UserModel {
         this.startingDate = startingDate;
     }
 
-    private Date startingDate;
-
     public Date getEndDate() {
         return endDate;
     }
@@ -111,8 +111,6 @@ public class UserModel {
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
-
-    private Date endDate;
 
     public int getYear() {
         return year;
@@ -122,8 +120,6 @@ public class UserModel {
         this.year = year;
     }
 
-    private int year;
-
     public String getStaffId() {
         return staffId;
     }
@@ -131,8 +127,6 @@ public class UserModel {
     public void setStaffId(String staffId) {
         this.staffId = staffId;
     }
-
-    private String staffId;
 
     public String getDepartment() {
         return department;
@@ -142,8 +136,6 @@ public class UserModel {
         this.department = department;
     }
 
-    private String department;
-
     public String getMailId() {
         return mailId;
     }
@@ -151,8 +143,6 @@ public class UserModel {
     public void setMailId(String mailId) {
         this.mailId = mailId;
     }
-
-    private String mailId;
 
     public String getAddress() {
         return address;
@@ -162,8 +152,6 @@ public class UserModel {
         this.address = address;
     }
 
-    private String address;
-
     public long getMobileNumber() {
         return mobileNumber;
     }
@@ -172,8 +160,6 @@ public class UserModel {
         this.mobileNumber = mobileNumber;
     }
 
-    private long mobileNumber;
-
     public Date getDob() {
         return dob;
     }
@@ -181,7 +167,4 @@ public class UserModel {
     public void setDob(Date dob) {
         this.dob = dob;
     }
-
-    private Date dob;
-
 }
