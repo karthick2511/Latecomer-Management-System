@@ -1,0 +1,14 @@
+POST http://localhost:8081/lms/rest/uploadStudentDetail
+Content-Type: application/json
+
+{
+  "registerNumber": "110816104002",
+  "studentName": "karuku",
+  "department": "cse",
+  "mailId": "karan@gmail.com",
+  "address": "chennai",
+  "mobileNumber": "1234567897",
+  "dob": "2020-07-12"
+}
+
+###
