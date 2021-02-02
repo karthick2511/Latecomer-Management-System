@@ -10,12 +10,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.sql.SQLException;
 
-@Path("/uploadStudentDetail")
-public class UploadStudentDetail {
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public String uploadStudentDetail(UserModel um) throws SQLException, ClassNotFoundException {
+public class SaveStudentService {
+    public static String save(UserModel um) throws SQLException, ClassNotFoundException {
         if (UploadStudentDetailDao.upload(um) > 0) {
             return "student details upload successfully...";
         } else {
