@@ -11,18 +11,14 @@ public class UserModel {
     private String description;
     private Time time;
     private String staffName;
-    private String registerNumber;
     private Date date;
-    private String studentName;
     private Date startingDate;
     private Date endDate;
     private int year;
     private String staffId;
-    private String department;
-    private String mailId;
-    private String address;
-    private long mobileNumber;
-    private Date dob;
+
+
+
 
     public String getUserName() {
         return userName;
@@ -72,28 +68,12 @@ public class UserModel {
         this.staffName = staffName;
     }
 
-    public String getRegisterNumber() {
-        return registerNumber;
-    }
-
-    public void setRegisterNumber(String registerNumber) {
-        this.registerNumber = registerNumber;
-    }
-
     public Date getDate() {
         return date;
     }
 
     public void setDate(Date date) {
         this.date = date;
-    }
-
-    public String getStudentName() {
-        return studentName;
-    }
-
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
     }
 
     public Date getStartingDate() {
@@ -128,43 +108,4 @@ public class UserModel {
         this.staffId = staffId;
     }
 
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public String getMailId() {
-        return mailId;
-    }
-
-    public void setMailId(String mailId) {
-        this.mailId = mailId;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public long getMobileNumber() {
-        return mobileNumber;
-    }
-
-    public void setMobileNumber(long mobileNumber) {
-        this.mobileNumber = mobileNumber;
-    }
-
-    public Date getDob() {
-        return dob;
-    }
-
-    public void setDob(Date dob) {
-        this.dob = dob;
-    }
 }
