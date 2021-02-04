@@ -1,0 +1,14 @@
+POST http://{{host}}:{{port}}/{{context}}/rest/Staff
+Content-Type: application/json
+
+{
+  "staffId": "cs102",
+  "staffName": "kumaran",
+  "mailId": "kumaran@gmal.com",
+  "address": "chennai",
+  "mobileNumber": "1234567898",
+  "dob": "2020-09-23",
+  "password": "test@staff"
+}
+
+###

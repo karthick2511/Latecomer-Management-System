@@ -1,0 +1,8 @@
+POST http://localhost:8080/lms/rest/staffView
+Content-Type: application/json
+
+{
+  "registerNumber": "110816104001"
+}
+
+###
