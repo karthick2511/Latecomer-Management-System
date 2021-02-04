@@ -26,7 +26,7 @@ public class StudentDao {
 
     public static void saveStudent(Connection connection, StudentModel student) throws SQLException {
         String studentSaveQuery = "insert into student(register_number, student_name, department, mail_id, " +
-                "address, mobile_number, dob) values (?,?,?,?,?,?,?)";
+                "address, mobile_number, dob,studying_year) values (?,?,?,?,?,?,?,?)";
         try (PreparedStatement statement = connection.prepareStatement(studentSaveQuery)) {
             statement.setString(1, student.getRegisterNumber());
             statement.setString(2, student.getStudentName());
@@ -35,6 +35,7 @@ public class StudentDao {
             statement.setString(5, student.getAddress());
             statement.setLong(6, student.getMobileNumber());
             statement.setDate(7, student.getDob());
+            statement.setInt(8,student.getYear());
             statement.executeUpdate();
         }
     }

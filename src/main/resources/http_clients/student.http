@@ -2,13 +2,14 @@ POST http://{{host}}:{{port}}/{{context}}/rest/student
 Content-Type: application/json
 
 {
-  "registerNumber": "110816104112",
+  "registerNumber": "110816104110",
   "studentName": "kannan",
   "department": "cse",
   "mailId": "karan@gmail.com",
   "address": "chennai",
   "mobileNumber": "1234567897",
-  "dob": "2020-02-20"
+  "dob": "2020-02-20",
+  "year": "3"
 }
 
 ###
