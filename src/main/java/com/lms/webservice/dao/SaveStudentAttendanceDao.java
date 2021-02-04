@@ -6,8 +6,22 @@ import com.lms.webservice.util.ConnectionUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class SaveStudentAttendanceDao {
+
+    public static boolean checkValidStudentOrNot(SaveAttendanceRecordModel attendanceRecord) throws Exception {
+        String query = "Select register_number from student where register_number =?";
+        try (Connection con = ConnectionUtil.getConnection();
+             PreparedStatement statement = con.prepareStatement(query)) {
+            statement.setString(1, attendanceRecord.getRegisterNumber());
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public static boolean checkAttendanceRecordAlreadyExistOrNOt(SaveAttendanceRecordModel attendanceRecord) throws Exception {
         String query = "Select register_number from master where register_number =? and date_of_record = ?";
