@@ -1,7 +1,7 @@
 package com.lms.webservice.resource;
 
 import com.lms.webservice.model.ViewModel;
-import com.lms.webservice.model.SaveAttendanceRecordAndViewResponseModel;
+import com.lms.webservice.model.SaveAttendanceRecordModel;
 import com.lms.webservice.service.StaffViewService;
 
 import javax.ws.rs.Consumes;
@@ -16,7 +16,7 @@ public class StaffViewResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public List<SaveAttendanceRecordAndViewResponseModel> getAllAttendanceRecord(ViewModel view) throws Exception {
+    public List<SaveAttendanceRecordModel> getAllAttendanceRecord(ViewModel view) throws Exception {
         return StaffViewService.getStudentRecord(view);
     }
 }

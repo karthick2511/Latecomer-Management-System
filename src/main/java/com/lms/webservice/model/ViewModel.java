@@ -1,12 +1,32 @@
 package com.lms.webservice.model;
 
-import java.sql.Date;
-import java.sql.Time;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
+import java.sql.Date;
+
+@JsonIgnoreProperties
 public class ViewModel {
     private String registerNumber;
     private Date startingDate;
     private Date endDate;
+    private Date date;
+    private int year;
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
 
     public String getRegisterNumber() {
         return registerNumber;

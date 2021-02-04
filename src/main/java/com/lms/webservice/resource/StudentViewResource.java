@@ -1,7 +1,7 @@
 package com.lms.webservice.resource;
 
 import com.lms.webservice.model.ViewModel;
-import com.lms.webservice.model.SaveAttendanceRecordAndViewResponseModel;
+import com.lms.webservice.model.SaveAttendanceRecordModel;
 import com.lms.webservice.service.StudentViewService;
 
 import javax.ws.rs.Consumes;
@@ -16,7 +16,7 @@ public class StudentViewResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public List<SaveAttendanceRecordAndViewResponseModel> view(ViewModel view) throws Exception {
+    public List<SaveAttendanceRecordModel> view(ViewModel view) throws Exception {
         return StudentViewService.studentView(view);
     }
 }

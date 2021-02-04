@@ -1,14 +1,24 @@
 package com.lms.webservice.model;
 
-import java.sql.Time;
 import java.sql.Date;
+import java.sql.Time;
 
-public class SaveAttendanceRecordAndViewResponseModel {
+public class ViewResponseModel {
     private String registerNumber;
     private Date date;
     private Time inTime;
     private String coordinateStaff;
     private String description;
+    private int year;
+    private String studentName;
+
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
 
     public String getRegisterNumber() {
         return registerNumber;
@@ -49,6 +59,12 @@ public class SaveAttendanceRecordAndViewResponseModel {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
 }
-
-

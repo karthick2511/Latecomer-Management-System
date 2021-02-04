@@ -1,8 +1,8 @@
-POST http://localhost:8080/lms/rest/staffView
+POST http://{{host}}:{{port}}/{{context}}/rest/staffView
 Content-Type: application/json
 
 {
-  "registerNumber": "110816104001"
+  "registerNumber": "110816104101"
 }
 
 ###

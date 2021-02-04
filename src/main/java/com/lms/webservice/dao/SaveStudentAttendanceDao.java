@@ -1,7 +1,6 @@
 package com.lms.webservice.dao;
 
-import com.lms.webservice.model.SaveAttendanceRecordAndViewResponseModel;
-import com.lms.webservice.model.ViewModel;
+import com.lms.webservice.model.SaveAttendanceRecordModel;
 import com.lms.webservice.util.ConnectionUtil;
 
 import java.sql.Connection;
@@ -10,7 +9,7 @@ import java.sql.ResultSet;
 
 public class SaveStudentAttendanceDao {
 
-    public static boolean checkAttendanceRecordAlreadyExistOrNOt(SaveAttendanceRecordAndViewResponseModel attendanceRecord) throws Exception {
+    public static boolean checkAttendanceRecordAlreadyExistOrNOt(SaveAttendanceRecordModel attendanceRecord) throws Exception {
         String query = "Select register_number from master where register_number =? and date_of_record = ?";
         try (Connection con = ConnectionUtil.getConnection();
              PreparedStatement statement = con.prepareStatement(query)) {
@@ -24,9 +23,9 @@ public class SaveStudentAttendanceDao {
         return false;
     }
 
-    public static void save(SaveAttendanceRecordAndViewResponseModel attendance) throws Exception {
+    public static void save(SaveAttendanceRecordModel attendance) throws Exception {
         String saveAttendance = "insert into master(register_number ,date_of_record,in_time, " +
-                "coordinate_staffName, description)values (?,?,?,?,?)";
+                "coordinate_staffName, description,studying_year)values (?,?,?,?,?,?)";
         try (Connection con = ConnectionUtil.getConnection();
              PreparedStatement statement = con.prepareStatement(saveAttendance)) {
             statement.setString(1, attendance.getRegisterNumber());
@@ -34,6 +33,7 @@ public class SaveStudentAttendanceDao {
             statement.setTime(3, attendance.getInTime());
             statement.setString(4, attendance.getCoordinateStaff());
             statement.setString(5, attendance.getDescription());
+            statement.setInt(6,attendance.getYear());
             statement.executeUpdate();
         }
 
