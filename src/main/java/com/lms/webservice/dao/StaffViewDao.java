@@ -1,25 +1,34 @@
 package com.lms.webservice.dao;
 
-import com.lms.webservice.model.UserModel;
+import com.lms.webservice.model.ViewModel;
+import com.lms.webservice.model.SaveAttendanceRecordAndViewResponseModel;
+import com.lms.webservice.util.ConnectionUtil;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 public class StaffViewDao {
-    public static ArrayList<Object> getStudentRecord(UserModel um) throws ClassNotFoundException, SQLException {
-        ArrayList<Object> studentRecord = new ArrayList<>();
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "password");
-             PreparedStatement ps = con.prepareStatement("select dateOfRecord, inTime, coordinateStaffName, description from AttendanceMaster where registerNumber=? ")) {
-            ps.setString(1, um.getRegisterNumber());
+    public static List<SaveAttendanceRecordAndViewResponseModel> getStudentRecord(ViewModel view) throws Exception {
+        List<SaveAttendanceRecordAndViewResponseModel> response = new ArrayList<>();
+        String viewQuery = "select register_number, date_of_record, in_time, coordinate_staffName, description from master where register_number=? ";
+        try (Connection con = ConnectionUtil.getConnection();
+             PreparedStatement ps = con.prepareStatement(viewQuery)) {
+            ps.setString(1, view.getRegisterNumber());
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                studentRecord.add(rs.getDate(1));
-                studentRecord.add(rs.getTime(2));
-                studentRecord.add(rs.getString(3));
-                studentRecord.add(rs.getString(4));
+                SaveAttendanceRecordAndViewResponseModel record = new SaveAttendanceRecordAndViewResponseModel();
+                record.setRegisterNumber((rs.getString(1)));
+                record.setDate(rs.getDate(2));
+                record.setInTime(rs.getTime(3));
+                record.setCoordinateStaff(rs.getString(4));
+                record.setDescription(rs.getString(5));
+
+                response.add(record);
             }
         }
-        return studentRecord;
+        return response;
     }
 }

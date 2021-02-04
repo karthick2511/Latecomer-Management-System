@@ -8,12 +8,7 @@ public class UserModel {
     private String userName;
     private String password;
     private String userRole = "unAuthorizerUser";
-    private String description;
-    private Time time;
-    private String staffName;
     private Date date;
-    private Date startingDate;
-    private Date endDate;
     private int year;
     private String staffId;
 
@@ -44,52 +39,12 @@ public class UserModel {
         this.userRole = userRole;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Time getTime() {
-        return time;
-    }
-
-    public void setTime(Time time) {
-        this.time = time;
-    }
-
-    public String getStaffName() {
-        return staffName;
-    }
-
-    public void setStaffName(String staffName) {
-        this.staffName = staffName;
-    }
-
     public Date getDate() {
         return date;
     }
 
     public void setDate(Date date) {
         this.date = date;
-    }
-
-    public Date getStartingDate() {
-        return startingDate;
-    }
-
-    public void setStartingDate(Date startingDate) {
-        this.startingDate = startingDate;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
     }
 
     public int getYear() {
