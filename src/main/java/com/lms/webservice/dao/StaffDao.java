@@ -1,12 +1,15 @@
 package com.lms.webservice.dao;
 
 import com.lms.webservice.model.StaffModel;
+import com.lms.webservice.model.StudentModel;
 import com.lms.webservice.util.ConnectionUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StaffDao {
 
@@ -49,4 +52,25 @@ public class StaffDao {
             statement.executeUpdate();
         }
     }
+
+    public static List<StaffModel> getAllStaff(StaffModel staff) throws Exception {
+        List<StaffModel> getStaff= new ArrayList<>();
+        String getAllStaff ="select staff_id, staff_name, password, mail_id, address, mobile_number, dob from staff";
+        try(Connection con =ConnectionUtil.getConnection();
+            PreparedStatement statement = con.prepareStatement(getAllStaff)){
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()){
+                staff.setStaffId(rs.getString(1));
+                staff.setStaffName(rs.getString(2));
+                staff.setPassword(rs.getString(3));
+                staff.setMailId(rs.getString(4));
+                staff.setAddress(rs.getString(5));
+                staff.setMobileNumber(rs.getLong(6));
+                staff.setDob(rs.getDate(7));
+                getStaff.add(staff);
+            }
+        }
+        return getStaff;
+    }
+
 }

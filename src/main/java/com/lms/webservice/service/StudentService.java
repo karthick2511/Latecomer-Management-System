@@ -6,6 +6,7 @@ import com.lms.webservice.model.StudentModel;
 import com.lms.webservice.util.ConnectionUtil;
 
 import java.sql.Connection;
+import java.util.List;
 
 public class StudentService {
 
@@ -26,5 +27,9 @@ public class StudentService {
                 }
             }
         }
+    }
+
+    public static List<StudentModel> viewAllStudent(StudentModel student) throws Exception {
+        return StudentDao.getAllStudent(student);
     }
 }

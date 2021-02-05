@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StudentDao {
 
@@ -47,5 +49,26 @@ public class StudentDao {
             statement.setString(1, student.getRegisterNumber());
             statement.executeUpdate();
         }
+    }
+
+    public static List<StudentModel> getAllStudent(StudentModel student) throws Exception {
+        List<StudentModel> getStudents = new ArrayList<>();
+        String getAllStudent ="select register_number, student_name, department, mail_id, address, mobile_number, dob,studying_year from student";
+        try(Connection con =ConnectionUtil.getConnection();
+            PreparedStatement statement = con.prepareStatement(getAllStudent)){
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()){
+                student.setRegisterNumber(rs.getString(1));
+                student.setStudentName(rs.getString(2));
+                student.setDepartment(rs.getString(3));
+                student.setMailId(rs.getString(4));
+                student.setAddress(rs.getString(5));
+                student.setMobileNumber(rs.getLong(6));
+                student.setDob(rs.getDate(7));
+                student.setYear(rs.getInt(8));
+                getStudents.add(student);
+            }
+        }
+        return getStudents;
     }
 }

@@ -1,4 +1,4 @@
-POST http://{{host}}:{{port}}/{{context}}/rest/student
+POST http://{{host}}:{{port}}/{{context}}/rest/student/viewStudent
 Content-Type: application/json
 
 {

@@ -8,6 +8,7 @@ import com.lms.webservice.model.StudentModel;
 import com.lms.webservice.util.ConnectionUtil;
 
 import java.sql.Connection;
+import java.util.List;
 
 
 public class StaffService {
@@ -31,4 +32,7 @@ public class StaffService {
             }
         }
 
+        public static List<StaffModel> viewAllStaff(StaffModel staff) throws Exception {
+        return StaffDao.getAllStaff(staff);
+        }
     }

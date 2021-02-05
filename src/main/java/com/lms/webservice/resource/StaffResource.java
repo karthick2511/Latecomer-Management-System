@@ -9,6 +9,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 @Path("/Staff")
 public class StaffResource {
@@ -17,5 +18,13 @@ public class StaffResource {
     @Produces(MediaType.APPLICATION_JSON)
     public ResponseModel saveStaff(StaffModel staff) throws Exception {
         return StaffService.saveStaff(staff);
+    }
+
+    @POST
+    @Path("/viewStaff")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<StaffModel> viewAllStaff(StaffModel staff) throws Exception {
+        return StaffService.viewAllStaff(staff);
     }
 }
