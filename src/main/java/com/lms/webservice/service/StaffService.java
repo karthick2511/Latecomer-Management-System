@@ -11,9 +11,7 @@ public class StaffService {
 
     public static ResponseModel saveLateComerRecord(LatecomerModel attendance) throws Exception {
         if (LateComerAuditDao.checkValidStudentOrNot(attendance)) {
-            if (LateComerAuditDao.checkAttendanceRecordAlreadyExistOrNOt(attendance)) {
-                return new ResponseModel("fail", "Already record exist..");
-            } else {
+            if (!LateComerAuditDao.checkAttendanceRecordAlreadyExistOrNOt(attendance)) {
                 try {
                     LateComerAuditDao.saveLateComerRecord(attendance);
                     return new ResponseModel("success", "record saved successfully...");
@@ -22,8 +20,9 @@ public class StaffService {
                 }
 
             }
+            return new ResponseModel("fail", "Already record exist..");
         }
-        return new ResponseModel("fail", "invalid student record");
+        return new ResponseModel("fail", "invalid student");
     }
 
     public static List<LatecomerModel> getStudentRecord(Long registerNumber) throws Exception {

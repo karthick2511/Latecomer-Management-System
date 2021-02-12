@@ -1,18 +1,18 @@
-GET http://{{host}}:{{port}}/{{context}}/rest/admin/1/2020-01-01
+GET http://{{host}}:{{port}}/{{context}}/rest/admin?year=1&date=2020-01-01
 Accept: application/json
 
 ###
-POST http://{{host}}:{{port}}/{{context}}/rest/admin/staffDetailsave
+POST http://{{host}}:{{port}}/{{context}}/rest/admin/staffDetail
 Content-Type: application/json
 
 {
-  "staffId": "",
-  "staffName": "",
-  "dob": "",
-  "password": "",
-  "mailId": "",
-  "address": "",
-  "mobileNumber": ""
+  "staffId": "cs103",
+  "staffName": "sathish",
+  "dob": "1998-02-12",
+  "password": "staff@test",
+  "mailId": "sathish@gmail.com",
+  "address": "thiruvallur",
+  "mobileNumber": "0987654331"
 }
 
 ###
@@ -28,12 +28,12 @@ Content-Type: application/json
 {}
 
 ###
-POST http://{{host}}:{{port}}/{{context}}/rest/admin/studentDetailSave
+POST http://{{host}}:{{port}}/{{context}}/rest/admin/studentDetail
 Content-Type: application/json
 
 {
-  "registerNumber": "110816104101",
-  "studentName": "kannan",
+  "registerNumber": "110816104120",
+  "studentName": "kanru",
   "department": "cse",
   "mailId": "karan@gmail.com",
   "address": "chennai",

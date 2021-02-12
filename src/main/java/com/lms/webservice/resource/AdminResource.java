@@ -11,7 +11,7 @@ import java.util.List;
 @Path("/admin")
 public class AdminResource {
 
-    @Path("/studentDetailSave")
+    @Path("/studentDetail")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -27,7 +27,7 @@ public class AdminResource {
         return AdminService.getAllStudent();
     }
 
-    @Path("/staffDetailSave")
+    @Path("/staffDetail")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -43,10 +43,9 @@ public class AdminResource {
         return AdminService.getAllStaff();
     }
 
-    @Path("{year}/{date}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<LatecomerModel> getLateComerRecord(@PathParam("year") int year, @PathParam("date") Date date) throws Exception {
+    public List<LatecomerModel> getLateComerRecord(@QueryParam("year") int year, @QueryParam("date") Date date) throws Exception {
         return AdminService.getLateComerRecord(year,date);
     }
 }

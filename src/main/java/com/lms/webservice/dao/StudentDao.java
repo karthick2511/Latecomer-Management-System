@@ -13,7 +13,7 @@ import java.util.List;
 public class StudentDao {
 
     public static boolean isUserExist(StudentModel student) throws Exception {
-        String checkUser = "select  from student where register_number= ?";
+        String checkUser = "select register_number from student where register_number= ?";
         try (Connection con = ConnectionUtil.getConnection();
              PreparedStatement statement = con.prepareStatement(checkUser)) {
             statement.setLong(1, student.getRegisterNumber());

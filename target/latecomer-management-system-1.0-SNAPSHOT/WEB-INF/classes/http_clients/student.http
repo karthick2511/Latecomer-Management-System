@@ -1,5 +1,0 @@
-GET http://{{host}}:{{port}}/{{context}}/rest/student/110816104101/2020-01-01/2020-01-10
-Accept: application/json
-
-###
-

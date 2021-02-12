@@ -1,9 +1,0 @@
-POST http://{{host}}:{{port}}/{{context}}/rest/login
-Content-Type: application/json
-
-{
-  "userName": "cs101",
-  "password": "staff@test"
-}
-
-###

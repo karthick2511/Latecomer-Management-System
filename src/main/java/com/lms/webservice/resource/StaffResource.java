@@ -11,9 +11,8 @@ import java.util.List;
 public class StaffResource {
 
     @GET
-    @Path("{registerNumber}")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<LatecomerModel> getAllAttendanceRecord(@PathParam("registerNumber") Long registerNumber) throws Exception {
+    public List<LatecomerModel> getAllAttendanceRecord(@QueryParam("registerNumber") Long registerNumber) throws Exception {
         return StaffService.getStudentRecord(registerNumber);
     }
 

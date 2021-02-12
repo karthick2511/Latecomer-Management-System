@@ -2,7 +2,7 @@ POST http://localhost:8080/lms/rest/staff/lateComerAudit
 Content-Type: application/json
 
 {
-  "registerNumber": "110816104200",
+  "registerNumber": "110816104120",
   "date": "2020-01-15",
   "inTime": "10:01:00",
   "coordinateStaff": "bharathimohan",
@@ -10,7 +10,7 @@ Content-Type: application/json
   "year": "1"
 }
 ###
-GET http://localhost:8080/lms/rest/staff/110816104101
+GET http://localhost:8080/lms/rest/staff?registerNumber=110816104101
 Accept: application/json
 
 ###

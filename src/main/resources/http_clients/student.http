@@ -1,4 +1,4 @@
-GET http://{{host}}:{{port}}/{{context}}/rest/student/110816104101/2020-01-01/2020-01-10
+GET http://{{host}}:{{port}}/{{context}}/rest/student?registerNumber=110816104120&fromDate=2020-01-01&toDate2020-01-15
 Accept: application/json
 
 ###

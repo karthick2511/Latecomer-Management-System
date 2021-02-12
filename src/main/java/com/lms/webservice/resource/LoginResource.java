@@ -10,8 +10,8 @@ import javax.ws.rs.core.MediaType;
 public class LoginResource {
 
     @POST
-    @Consumes(MediaType.TEXT_PLAIN)
-    @Produces(MediaType.TEXT_PLAIN)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public String login(UserModel user) throws Exception {
 
         return LoginService.login(user);
