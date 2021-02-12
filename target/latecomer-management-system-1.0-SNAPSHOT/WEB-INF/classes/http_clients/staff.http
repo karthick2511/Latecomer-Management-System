@@ -1,14 +1,16 @@
-POST http://{{host}}:{{port}}/{{context}}/rest/Staff
+POST http://localhost:8080/lms/rest/staff/lateComerAudit
 Content-Type: application/json
 
 {
-  "staffId": "cs102",
-  "staffName": "kumaran",
-  "mailId": "kumaran@gmal.com",
-  "address": "chennai",
-  "mobileNumber": "1234567898",
-  "dob": "2020-09-23",
-  "password": "test@staff"
+  "registerNumber": "110816104200",
+  "date": "2020-01-15",
+  "inTime": "10:01:00",
+  "coordinateStaff": "bharathimohan",
+  "description": "test-1 ",
+  "year": "1"
 }
+###
+GET http://localhost:8080/lms/rest/staff/110816104101
+Accept: application/json
 
 ###

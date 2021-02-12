@@ -3,7 +3,7 @@ package com.lms.webservice.model;
 import java.sql.Date;
 
 public class StudentModel {
-    private String registerNumber;
+    private long registerNumber;
     private String studentName;
     private Date dob;
     private String department;
@@ -20,11 +20,11 @@ public class StudentModel {
         this.year = year;
     }
 
-    public String getRegisterNumber() {
+    public long getRegisterNumber() {
         return registerNumber;
     }
 
-    public void setRegisterNumber(String registerNumber) {
+    public void setRegisterNumber(long registerNumber) {
         this.registerNumber = registerNumber;
     }
 

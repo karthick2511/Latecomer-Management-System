@@ -1,34 +1,58 @@
 <html>
 <head>
-    <title>latecomer-management-system</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Login Page </title>
+    <style>
+        Body {
+            font-family: Calibri, Helvetica, sans-serif;
+            background-color: pink;
+        }
+        button {
+            background-color: #4CAF50;
+            width: 100%;
+            color: orange;
+            padding: 15px;
+            margin: 10px 0px;
+            border: none;
+            cursor: pointer;
+        }
+        form {
+            border: 3px solid #f1f1f1;
+        }
+        input[type=text], input[type=password] {
+            width: 100%;
+            margin: 8px 0;
+            padding: 12px 20px;
+            display: inline-block;
+            border: 2px solid green;
+            box-sizing: border-box;
+        }
+        button:hover {
+            opacity: 0.7;
+        }
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            margin: 10px 5px;
+        }
+
+
+        .container {
+            padding: 25px;
+            background-color: lightblue;
+        }
+    </style>
 </head>
 <body>
-<form method="POST" action="rest/fileUpload" enctype="multipart/form-data">
-
-    <table>
-        <tr>
-            <td>Name :</td>
-            <br>
-        </tr>
-        <tr>
-            <td>Register number :</td>
-            <br>
-        <tr>
-            <td>Staff Description</td>
-            <br>
-            <td><textarea rows="4" cols="50" type="text" name="description" value="command" aria-required="true"> </textarea></td>
-        </tr>
-
-        <tr>
-            <td>Apology Letter :</td>
-            <td><input type="file" name="file" id="file"/></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <input type="submit" value="Upload" id="upload"/></td>
-        </tr>
-    </table>
+<center> <h1> Student Login Form </h1> </center>
+<form action="rest/login"  method="post">
+    <div class="container">
+        <label>Username : </label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+        <label>Password : </label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+        <button type="submit">Login</button>
+    </div>
 </form>
 </body>
 </html>

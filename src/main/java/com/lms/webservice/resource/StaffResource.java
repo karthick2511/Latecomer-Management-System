@@ -1,30 +1,27 @@
 package com.lms.webservice.resource;
 
-import com.lms.webservice.model.ResponseModel;
-import com.lms.webservice.model.StaffModel;
+import com.lms.webservice.model.*;
 import com.lms.webservice.service.StaffService;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-@Path("/Staff")
+@Path("/staff")
 public class StaffResource {
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
+
+    @GET
+    @Path("{registerNumber}")
     @Produces(MediaType.APPLICATION_JSON)
-    public ResponseModel saveStaff(StaffModel staff) throws Exception {
-        return StaffService.saveStaff(staff);
+    public List<LatecomerModel> getAllAttendanceRecord(@PathParam("registerNumber") Long registerNumber) throws Exception {
+        return StaffService.getStudentRecord(registerNumber);
     }
 
+    @Path("/lateComerAudit")
     @POST
-    @Path("/viewStaff")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public List<StaffModel> viewAllStaff(StaffModel staff) throws Exception {
-        return StaffService.viewAllStaff(staff);
+    public ResponseModel saveLateComerRecord(LatecomerModel attendance) throws Exception {
+        return StaffService.saveLateComerRecord(attendance);
     }
 }

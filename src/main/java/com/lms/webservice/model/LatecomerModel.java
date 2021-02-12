@@ -3,14 +3,22 @@ package com.lms.webservice.model;
 import java.sql.Date;
 import java.sql.Time;
 
-public class ViewResponseModel {
-    private String registerNumber;
+public class LatecomerModel {
+    private long registerNumber;
     private Date date;
     private Time inTime;
     private String coordinateStaff;
     private String description;
     private int year;
     private String studentName;
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
 
     public String getStudentName() {
         return studentName;
@@ -20,11 +28,11 @@ public class ViewResponseModel {
         this.studentName = studentName;
     }
 
-    public String getRegisterNumber() {
+    public long getRegisterNumber() {
         return registerNumber;
     }
 
-    public void setRegisterNumber(String registerNumber) {
+    public void setRegisterNumber(long registerNumber) {
         this.registerNumber = registerNumber;
     }
 
@@ -59,12 +67,6 @@ public class ViewResponseModel {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
 }
+
+

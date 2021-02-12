@@ -12,14 +12,13 @@ import java.util.List;
 
 public class StudentDao {
 
-    public static boolean checkUserExistOrNot(StudentModel student) throws Exception {
-        String checkUser = "select register_number from student where register_number= ?";
+    public static boolean isUserExist(StudentModel student) throws Exception {
+        String checkUser = "select  from student where register_number= ?";
         try (Connection con = ConnectionUtil.getConnection();
              PreparedStatement statement = con.prepareStatement(checkUser)) {
-            statement.setString(1, student.getRegisterNumber());
+            statement.setLong(1, student.getRegisterNumber());
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
-                student.setRegisterNumber(rs.getString(1));
                 return true;
             }
             return false;
@@ -30,7 +29,7 @@ public class StudentDao {
         String studentSaveQuery = "insert into student(register_number, student_name, department, mail_id, " +
                 "address, mobile_number, dob,studying_year) values (?,?,?,?,?,?,?,?)";
         try (PreparedStatement statement = connection.prepareStatement(studentSaveQuery)) {
-            statement.setString(1, student.getRegisterNumber());
+            statement.setLong(1, student.getRegisterNumber());
             statement.setString(2, student.getStudentName());
             statement.setString(3, student.getDepartment());
             statement.setString(4, student.getMailId());
@@ -46,26 +45,27 @@ public class StudentDao {
         String saveUser = "insert into users(user_name,password,user_role) " +
                 "select register_number,dob,user_role from student where register_number=?";
         try (PreparedStatement statement = connection.prepareStatement(saveUser)) {
-            statement.setString(1, student.getRegisterNumber());
+            statement.setLong(1, student.getRegisterNumber());
             statement.executeUpdate();
         }
     }
 
-    public static List<StudentModel> getAllStudent(StudentModel student) throws Exception {
+    public static List<StudentModel> getAllStudent() throws Exception {
         List<StudentModel> getStudents = new ArrayList<>();
         String getAllStudent ="select register_number, student_name, department, mail_id, address, mobile_number, dob,studying_year from student";
         try(Connection con =ConnectionUtil.getConnection();
             PreparedStatement statement = con.prepareStatement(getAllStudent)){
             ResultSet rs = statement.executeQuery();
             while (rs.next()){
-                student.setRegisterNumber(rs.getString(1));
-                student.setStudentName(rs.getString(2));
-                student.setDepartment(rs.getString(3));
-                student.setMailId(rs.getString(4));
-                student.setAddress(rs.getString(5));
-                student.setMobileNumber(rs.getLong(6));
-                student.setDob(rs.getDate(7));
-                student.setYear(rs.getInt(8));
+                StudentModel student = new StudentModel();
+                student.setRegisterNumber(rs.getLong("register_number"));
+                student.setStudentName(rs.getString("student_name"));
+                student.setDepartment(rs.getString("department"));
+                student.setMailId(rs.getString("mail_id"));
+                student.setAddress(rs.getString("address"));
+                student.setMobileNumber(rs.getLong("mobile_number"));
+                student.setDob(rs.getDate("dob"));
+                student.setYear(rs.getInt("studying_year"));
                 getStudents.add(student);
             }
         }

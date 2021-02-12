@@ -1,15 +1,5 @@
-POST http://{{host}}:{{port}}/{{context}}/rest/student/viewStudent
-Content-Type: application/json
-
-{
-  "registerNumber": "110816104110",
-  "studentName": "kannan",
-  "department": "cse",
-  "mailId": "karan@gmail.com",
-  "address": "chennai",
-  "mobileNumber": "1234567897",
-  "dob": "2020-02-20",
-  "year": "3"
-}
+GET http://{{host}}:{{port}}/{{context}}/rest/student/110816104101/2020-01-01/2020-01-10
+Accept: application/json
 
 ###
+
